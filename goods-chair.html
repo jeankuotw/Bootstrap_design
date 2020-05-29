@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!-- 適用於台灣繁體字 -->
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 網頁會隨裝置調整大小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ie相容性,讓ie強制指定到新版的edge -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>UNDE-Shopping Website</title>
+
+    <!-- Bootstrap CSS連結 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/all.css">
+
+    <!-- Fontawesome連結(我的Fontawesome kit) -->
+    <script src="https://kit.fontawesome.com/59a4f0bb37.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+
+    <!-- Navbar start-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="index.html"><img src="img/(change)UNDElogoblackw.svg" style="width:150px; height:50px;"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="productlist.html">Product</a>
+              </li>
+            </ul>
+
+            <!-- 購物車+顯示購物車清單:dropdown -->
+            <div class="dropdown">
+                  <!-- 取消dropdown的向下箭頭:取消class="dropdown-toggle" -->
+                  <!-- btn-cart為自己定義的CSS設定 -->
+                  <button class="btn btn-outline-secondary text-dark btn-cart" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- i圖示:fontawesome -->
+                    購物車<i class="fas fa-shopping-cart fa-1x ml-1"></i>
+                    <!-- 購物車內商品數量：Badge -->
+                    <span class="badge badge-pill badge-danger">3</span>
+                  </button>
+                  <!-- 下拉式選單改為向右靠齊class="dropdown-menu-right" -->
+                  <!-- 調整寬度：加上style→min-width最小寬度為XXpx -->
+                  <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="dropdownMenuButton" style="min-width:380px;">
+                    <!-- 標題 -->
+                    <p class="font-weight-bolder">已選購商品</p>
+                    <!-- 明細：改為表格格式table -->
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <!-- 垃圾桶標籤:i標籤,font-awesome小圖示 -->
+                          <!-- 按圖示跳出刪除對話框Modal(寫在nav下方),圖示也需設定data-toggle="modal"、data-target="#id名" -->
+                          <!-- 屬性data-backdrop="static"→取消彈跳視窗modal按到視窗以外的部分時,直接關掉視窗的功能 -->
+                          <th scope="col"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+
+
+                          <!-- 商品照片 -->
+                          <td scope="col"><img src="img/goods-sofa.jpg" style="width:60%;"></td>
+                          <!-- 商品名稱 -->
+                          <td scope="col" style="width:120px;">餐椅(簡約風格型)</td>
+                          <!-- 數量 -->
+                          <td scope="col">1</td>
+                          <!-- 金額 -->
+                          <td scope="col" class="text-right">$1,590</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-chair3.jpg" style="width:60%;"></td>
+                          <td>原木餐桌椅</td>
+                          <td>4</td>
+                          <td class="text-right">$8,400</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-lamp1.jpg" style="width:60%;"></td>
+                          <td>吊燈</td>
+                          <td>1</td>
+                          <td class="text-right">$1,200</td>
+                        </tr>
+                        <!-- 金額 -->
+                        <tr class="bg-light">
+                          <th scope="row" colspan="3" class="text-center">總計</th>
+                          <td scope="col">6</td>
+                          <td class="text-right">NT$5,640</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <!-- 送出按鈕：與下拉式選單同寬btn-block -->
+                    <a href="cart.html" type="button" class="btn btn-primary btn-block"><i class="fas fa-shopping-cart fa-1x mr-2"></i>前往結帳</a>
+                    <a href=""></a>
+
+
+                  </div>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar end -->
+
+        <!-- 刪除Modal start-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header bg-danger text-light">
+                <h5 class="modal-title" id="exampleModalLabel">確定刪除商品嗎?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                <button type="button" class="btn btn-outline-danger">確定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal end -->
+        
+
+    <!-- 主視覺圖片：圖片滿版 -->
+    <header>
+
+        <!-- [課程作法] Jumbotron廣告大屏幕(使用滿版) -->        
+        <!-- 自定義class：插入背景圖、bg-cover定義圖片高度、顯示位置、符合寬度大小 -->
+        <!-- 垂直置中:使用d-flex排版 -->
+        <div class="jumbotron jumbotron-fluid jumbotron-bg bg-cover d-flex align-items-center">    
+            <div class="container text-light text-center jumbotron-text">
+                <h1 class="display-4">2020春季，最後出清</h1>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A vero, nobis atque! Vero totam, ex nemo vitae asperiores repudiandae deserunt nisi enim, voluptates, sit eos nulla libero tempora.</p>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Content start -->
+    <section>
+      <div class="container">
+        <!-- 提示目前所在位置：Breadcrumb(麵包屑) -->
+        <nav aria-label="breadcrumb" class="mb-5">
+          <!-- 背景設為透明：bg-transparent、消除預設左右側的padding -->
+          <ol class="breadcrumb bg-transparent px-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="productlist.html">Product</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Chair</li>
+          </ol>
+        </nav>
+        <div class="row mb-3">
+          
+          <!-- 左：商品敘述、價格 -->          
+          <div class="col-md-3">
+            <!-- (注意使用位置是在col內)使用sticky-top讓商品敘述高度不會高於畫面上方 -->       
+            <!-- 利用CSS2的top:XXpx來調整上方高度 -->
+            <div class="sticky-top" style="top:20px;">
+              <h3 class="mb-4">餐椅<small class="text-secondary">(簡約風格型)</small></h3>
+              <!-- 外層包d-flex div,可靈活排版 -->
+              <!-- 注意：雖使用垂直置中align-items-center,但各種標籤仍有部分margin設定,要自己消除掉(如下方p標籤要手動消除margin-bottom) -->
+              <div class="d-flex align-items-center">
+                <!-- del刪除標籤 -->
+                <del class="text-secondary mr-auto">建議售價$2,500</del>
+                <p class="h5 text-danger mb-0">網路售價NT$1,890</p>
+              </div>
+              <hr>
+              <div class="d-flex align-items-center mb-3">
+                <p class="mb-0 mr-2">尺寸：</p>
+                  <!-- (重要)缺貨商品雖可使用disabled讓按鈕失效,但仍有點擊的效果,此時可使用CSS來設定pointer-events:none,讓disabled的商品無法選擇 -->
+                  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary">S</button>
+                    <button type="button" class="btn btn-outline-secondary disabled">M</button>
+                    <button type="button" class="btn btn-outline-secondary">L</button>
+                  </div>
+              </div>
+
+              <!-- 數量選擇：下拉式選單+按鈕 -->
+              <!-- 外層：input-group(可讓內容在同一列)、內層下拉式選單設定為form-control -->
+                <div class="input-group">
+                <select id="inputState" class="form-control mr-2">
+                  <option selected>1 件</option>
+                  <option>2 件</option>
+                  <option>3 件</option>
+                  <option>4 件</option>
+                  <option>5 件</option>
+                </select>
+                <div class="btn btn-primary btn-hover">加入購物車</div>
+              </div>
+
+          </div>
+
+          </div>
+
+          <!-- 右：商品照片 -->
+          <div class="col-md-9 text-center">
+            <p class="h3">簡約大方</p>
+            <!-- 圖片符合div寬度 -->
+            <img class="img-fluid mb-3" src="img/goods-chair1-origin.jpg">
+            <img class="img-fluid mb-3" src="img/goods-chair1-origin2.jpg">
+            <div class="bg-secondary text-light p-4 text-justify">
+              <h4 class="text-center">About Goods</h4>
+              <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- Content end -->
+
+
+    <!-- footer start -->
+    <footer class="bg-info text-white text-center py-5">
+
+        <div class="d-flex justify-content-center mb-2">
+            <h6 class="mr-2">Copyright 2020 @ JeanKuo</h6>
+            <!-- IG圖 -->
+            <a href="#" class="text-white"><i class="fab fa-instagram fa-1x mr-2"></i></a>
+            <!-- FB圖 -->
+            <a href="#" class="text-white"><i class="fab fa-facebook fa-1x mr-2"></i></a>
+            <!-- Twitter -->
+            <a href="#" class="text-white"><i class="fab fa-twitter fa-1x mr-2"></i></a>
+        </div>     
+        <p>Made with Bootstrap</p>
+    </footer>
+    <!-- footer end -->
+
+
+
+    
+
+    <!-- Bootstrap JS載入 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!-- 適用於台灣繁體字 -->
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 網頁會隨裝置調整大小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ie相容性,讓ie強制指定到新版的edge -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>UNDE-Shopping Website</title>
+
+    <!-- Bootstrap CSS連結 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/all.css">
+
+    <!-- Fontawesome連結(我的Fontawesome kit) -->
+    <script src="https://kit.fontawesome.com/59a4f0bb37.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+
+    <!-- Navbar start-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="index.html"><img src="img/(change)UNDElogoblackw.svg" style="width:150px; height:50px;"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="productlist.html">Product</a>
+              </li>
+            </ul>
+
+            <!-- 購物車+顯示購物車清單:dropdown -->
+            <div class="dropdown">
+                  <!-- 取消dropdown的向下箭頭:取消class="dropdown-toggle" -->
+                  <!-- btn-cart為自己定義的CSS設定 -->
+                  <button class="btn btn-outline-secondary text-dark btn-cart" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- i圖示:fontawesome -->
+                    購物車<i class="fas fa-shopping-cart fa-1x ml-1"></i>
+                    <!-- 購物車內商品數量：Badge -->
+                    <span class="badge badge-pill badge-danger">3</span>
+                  </button>
+                  <!-- 下拉式選單改為向右靠齊class="dropdown-menu-right" -->
+                  <!-- 調整寬度：加上style→min-width最小寬度為XXpx -->
+                  <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="dropdownMenuButton" style="min-width:380px;">
+                    <!-- 標題 -->
+                    <p class="font-weight-bolder">已選購商品</p>
+                    <!-- 明細：改為表格格式table -->
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <!-- 垃圾桶標籤:i標籤,font-awesome小圖示 -->
+                          <!-- 按圖示跳出刪除對話框Modal(寫在nav下方),圖示也需設定data-toggle="modal"、data-target="#id名" -->
+                          <!-- 屬性data-backdrop="static"→取消彈跳視窗modal按到視窗以外的部分時,直接關掉視窗的功能 -->
+                          <th scope="col"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+
+
+                          <!-- 商品照片 -->
+                          <td scope="col"><img src="img/goods-sofa.jpg" style="width:60%;"></td>
+                          <!-- 商品名稱 -->
+                          <td scope="col" style="width:120px;">餐椅(簡約風格型)</td>
+                          <!-- 數量 -->
+                          <td scope="col">1</td>
+                          <!-- 金額 -->
+                          <td scope="col" class="text-right">$1,590</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-chair3.jpg" style="width:60%;"></td>
+                          <td>原木餐桌椅</td>
+                          <td>4</td>
+                          <td class="text-right">$8,400</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-lamp1.jpg" style="width:60%;"></td>
+                          <td>吊燈</td>
+                          <td>1</td>
+                          <td class="text-right">$1,200</td>
+                        </tr>
+                        <!-- 金額 -->
+                        <tr class="bg-light">
+                          <th scope="row" colspan="3" class="text-center">總計</th>
+                          <td scope="col">6</td>
+                          <td class="text-right">NT$5,640</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <!-- 送出按鈕：與下拉式選單同寬btn-block -->
+                    <a href="cart.html" type="button" class="btn btn-primary btn-block"><i class="fas fa-shopping-cart fa-1x mr-2"></i>前往結帳</a>
+                    <a href=""></a>
+
+                  </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- 刪除Modal start-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header bg-danger text-light">
+                <h5 class="modal-title" id="exampleModalLabel">確定刪除商品嗎?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                <button type="button" class="btn btn-outline-danger">確定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal end -->
+
+    <!-- Navbar end -->
+
+    <!-- 主視覺圖片：輪播滿版 -->
+    <header>
+      <!-- Carousel輪播：並將照片改成用背景插入(可調整背景顯示大小、顯示位置) -->
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <!-- 照片:背景插入+符合寬高 -->
+          <!-- 1 -->
+          <!-- 文字垂直置中方法：div > row + h-100 > col-12 + my-auto
+               (與原始輪播格式差在多了一層row) -->
+          <div class="carousel-item active bg-cover" style="background-image: url(img/carousel_01.jpg);">
+            <!-- <img src="img/carousel_01.jpg" class="d-block w-100" alt="..."> -->
+            <!-- 文字：調整顯示高度、背景色 -->
+            <div class="carousel-caption d-md-block" style="top:35%; bottom:45%;">
+              <!-- md以上顯示此段+文字大(自定義CSS),md以下隱藏此段 -->
+              <div class="row h-100">
+                <div class="col-12 my-auto">
+                  <h5 class="display-md-4 d-md-block d-none">2020春季，最後出清</h5>
+                  <!-- md(平板)以上隱藏本段,md以下顯示+文字小 -->
+                  <!-- sm(手機橫式)以下使用CSS定義寬高 -->
+                  <h5 class="h2 d-md-none d-block" style="line-height: 50px;">2020春季<br>最後出清</h5>
+                  <!-- 副標題:md以下不顯示 -->
+                  <p class="h5 d-md-block d-none">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </div>                
+              </div>
+            </div>
+          </div>
+          <!-- 2 -->
+          <div class="carousel-item bg-cover" style="background-image: url(img/carousel_02.jpg);">
+            <div class="carousel-caption d-md-block" style="top:35%; bottom:45%;">
+              <div class="row h-100">
+                <div class="col-12 my-auto">
+                  <h5 class="display-md-4 d-md-block d-none">復古歐風，嚴選珍藏</h5>
+                  <h5 class="h2 d-md-none d-block" style="line-height: 50px;">復古歐風<br>嚴選珍藏</h5>
+                  <p class="h5 d-md-block d-none">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </div>                
+              </div>
+            </div>
+          </div>
+          <!-- 3 -->
+          <div class="carousel-item bg-cover" style="background-image: url(img/carousel_03.jpg);">
+            <div class="carousel-caption d-md-block" style="top:35%; bottom:45%;">
+              <div class="row h-100">
+                <div class="col-12 my-auto">
+                  <h5 class="display-md-4 d-md-block d-none">時尚餐具，現正優惠</h5>
+                  <h5 class="h2 d-md-none d-block" style="line-height: 50px;">時尚餐具<br>現正優惠</h5>
+                  <p class="h5 d-md-block d-none">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </div>                
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+    </header>
+
+    <!-- Content start -->
+    <!-- 顯示6大類產品 -->
+    <section class="p-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-2 col-md-4 p-0">
+            <a href="productlist.html" class="card bg-dark text-white border-0">
+              <img src="img/section_photo1.jpg" class="card-img" alt="...">
+              <!-- 設定水平+垂直置中：將內容轉為flex -->
+              <div class="card-img-overlay d-flex justify-content-center align-items-center card-hover">
+                <h3 class="card-title">CHAIR</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-2 col-md-4 p-0">
+            <a href="productlist.html" class="card bg-dark text-white border-0">
+              <img src="img/section_photo2.jpg" class="card-img" alt="...">
+              <div class="card-img-overlay d-flex justify-content-center align-items-start card-hover">
+                <h3 class="card-title">SOFA</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-2 col-md-4 p-0">
+            <a href="productlist.html" class="card bg-dark text-white border-0">
+              <img src="img/section_photo3.jpg" class="card-img" alt="...">
+              <div class="card-img-overlay d-flex justify-content-center align-items-center card-hover">
+                <h3 class="card-title">KITCHEN</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-2 col-md-4 p-0">
+            <a href="productlist.html" class="card bg-dark text-white border-0">
+              <img src="img/section_photo4.jpg" class="card-img" alt="...">
+              <div class="card-img-overlay d-flex justify-content-center align-items-start card-hover">
+                <h3 class="card-title">BEDROOM</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-2 col-md-4 p-0">
+            <a href="#" class="card bg-dark text-white border-0">
+              <img src="img/section_photo5.jpg" class="card-img" alt="...">
+              <!-- 設定水平+垂直置中：將內容轉為flex -->
+              <div class="card-img-overlay d-flex justify-content-center align-items-center card-hover">
+                <h3 class="card-title">TABLE</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-2 col-md-4 p-0">
+            <a href="#" class="card bg-dark text-white border-0">
+              <img src="img/section_photo6.jpg" class="card-img" alt="...">
+              <div class="card-img-overlay d-flex justify-content-center align-items-start card-hover">
+                <h3 class="card-title">LIGHT</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section 1 end -->
+
+    <!-- section 2 -->
+    <section>
+      <div class="container-fluid bg-cover-center" style="height:700px; background-image: url(img/section2_bg.jpg);">
+      <div class="row justify-content-around align-items-center h-100">
+        <!-- 圓角邊rounded -->
+        <div class="col-md-3 bg-light p-5 rounded" style="height:300px; opacity:0.5;">
+          <h2>SIMPLE</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum praesentium magnam veniam consequuntur similique illo at, doloribus incidunt dolores, et?</p>
+        </div>
+        <div class="col-md-3 bg-dark text-light p-5 rounded text-right" style="height:300px; opacity:0.5;">
+          <h2>RELAXE</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum praesentium magnam veniam consequuntur similique illo at, doloribus incidunt dolores, et?</p>
+        </div>
+      </div>
+        
+      </div>  
+    </section>
+    <!-- section 2 end --> 
+
+    <!-- section 3 -->
+    <!-- 購買通路 -->
+    <section>
+      
+    </section>
+    <!-- section 3 end-->
+    <!-- Content end -->
+
+
+    <!-- footer start -->
+    <footer class="bg-info text-white text-center py-5 my-5">
+
+        <div class="d-flex justify-content-center mb-2">
+            <h6 class="mr-2">Copyright 2020 @ JeanKuo</h6>
+            <!-- IG圖 -->
+            <a href="#" class="text-white"><i class="fab fa-instagram fa-1x mr-2"></i></a>
+            <!-- FB圖 -->
+            <a href="#" class="text-white"><i class="fab fa-facebook fa-1x mr-2"></i></a>
+            <!-- Twitter -->
+            <a href="#" class="text-white"><i class="fab fa-twitter fa-1x mr-2"></i></a>
+        </div>     
+        <p>Made with Bootstrap</p>
+    </footer>
+    <!-- footer end -->
+
+
+
+    
+
+    <!-- Bootstrap JS載入 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- 個人js檔 -->
+    <script type="text/javascript" src="js/all.js"></script>
+
+
+</body>
+
+</html>

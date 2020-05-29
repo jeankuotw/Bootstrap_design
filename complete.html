@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!-- 適用於台灣繁體字 -->
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 網頁會隨裝置調整大小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ie相容性,讓ie強制指定到新版的edge -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>UNDE-Shopping Website</title>
+
+    <!-- Bootstrap CSS連結 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/all.css">
+
+    <!-- Fontawesome連結(我的Fontawesome kit) -->
+    <script src="https://kit.fontawesome.com/59a4f0bb37.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+
+    <!-- Navbar start-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="index.html"><img src="img/(change)UNDElogoblackw.svg" style="width:150px; height:50px;"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="productlist.html">Product</a>
+              </li>
+            </ul>
+
+            <!-- 購物車+顯示購物車清單:dropdown -->
+            <div class="dropdown">
+                  <!-- 取消dropdown的向下箭頭:取消class="dropdown-toggle" -->
+                  <!-- btn-cart為自己定義的CSS設定 -->
+                  <button class="btn btn-outline-secondary text-dark btn-cart" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- i圖示:fontawesome -->
+                    購物車<i class="fas fa-shopping-cart fa-1x ml-1"></i>
+                    <!-- 購物車內商品數量：Badge -->
+                    <span class="badge badge-pill badge-danger">3</span>
+                  </button>
+                  <!-- 下拉式選單改為向右靠齊class="dropdown-menu-right" -->
+                  <!-- 調整寬度：加上style→min-width最小寬度為XXpx -->
+                  <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="dropdownMenuButton" style="min-width:380px;">
+                    <!-- 標題 -->
+                    <p class="font-weight-bolder">已選購商品</p>
+                    <!-- 明細：改為表格格式table -->
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <!-- 垃圾桶標籤:i標籤,font-awesome小圖示 -->
+                          <!-- 按圖示跳出刪除對話框Modal(寫在nav下方),圖示也需設定data-toggle="modal"、data-target="#id名" -->
+                          <!-- 屬性data-backdrop="static"→取消彈跳視窗modal按到視窗以外的部分時,直接關掉視窗的功能 -->
+                          <th scope="col"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+
+
+                          <!-- 商品照片 -->
+                          <td scope="col"><img src="img/goods-sofa.jpg" style="width:60%;"></td>
+                          <!-- 商品名稱 -->
+                          <td scope="col" style="width:120px;">餐椅(簡約風格型)</td>
+                          <!-- 數量 -->
+                          <td scope="col">1</td>
+                          <!-- 金額 -->
+                          <td scope="col" class="text-right">$1,590</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-chair3.jpg" style="width:60%;"></td>
+                          <td>原木餐桌椅</td>
+                          <td>4</td>
+                          <td class="text-right">$8,400</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-lamp1.jpg" style="width:60%;"></td>
+                          <td>吊燈</td>
+                          <td>1</td>
+                          <td class="text-right">$1,200</td>
+                        </tr>
+                        <!-- 金額 -->
+                        <tr class="bg-light">
+                          <th scope="row" colspan="3" class="text-center">總計</th>
+                          <td scope="col">6</td>
+                          <td class="text-right">NT$5,640</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <!-- 送出按鈕：與下拉式選單同寬btn-block -->
+                    <a href="cart.html" type="button" class="btn btn-primary btn-block"><i class="fas fa-shopping-cart fa-1x mr-2"></i>前往結帳</a>
+                    <a href=""></a>
+
+                  </div>
+            </div>
+          </div>
+        </nav>
+    <!-- Navbar end -->
+
+
+
+    <!-- Content start -->
+    <!-- 購物車結帳流程：使用row>col>alert來排版 -->
+    <!-- RWD排版：手機直式col單行(col)、sm以上三個col一列(col-sm即可,不用寫數字,會平均分配寬度) -->
+    <header class="my-3">
+      <div class="container">
+        <div class="row text-center">
+          <!-- 1 -->
+          <div class="col col-sm">
+            <!-- alert框變為圓角：自定義class="alert-rounded" -->
+            <div class="alert alert-light border-secondary alert-rounded" role="alert">步驟1-輸入訂單資料</div>
+          </div>
+          <!-- 2 -->
+          <div class="col col-sm">
+            <div class="alert alert-light border-secondary alert-rounded" role="alert">步驟2-選擇付款方式</div>
+          </div>
+          <!-- 3 -->
+          <div class="col col-sm">
+            <div class="alert alert-primary alert-rounded" role="alert">步驟3-完成訂單</div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- 顯示購物車內容start -->
+    <section class="my-5">
+      <div class="container">
+        <!-- 使用row>col將購物車內容調整成適合寬度、並用flex排版置中 -->
+        <div class="row justify-content-center">
+          <div class="col-8">
+                    <!-- 直接使用購物車清單中的表格內容 -->
+                    <h5 class="text-center font-weight-bolder">購買資訊</h5>
+                    <table class="table mb-0">
+                      <tbody>
+                        <!-- 1 -->
+                        <tr>
+                          <!-- 商品照片 -->
+                          <th scope="row"><img src="img/goods-sofa.jpg" style="width:40%;"></th>
+                          <!-- 商品名稱 -->
+                          <td>餐椅(簡約風格型)</td>
+                          <!-- 數量 -->
+                          <td>1</td>
+                          <!-- 金額 -->
+                          <td class="text-right">$1,590</td>
+                        </tr>
+                        <!-- 2 -->
+                        <tr>
+                          <th scope="col"><img src="img/goods-chair3.jpg" style="width:40%;"></th>
+                          <td>原木餐桌椅</td>
+                          <td>4</td>
+                          <td class="text-right">$8,400</td>
+                        </tr>
+                        <!-- 3 -->
+                        <tr>
+                          <th scope="row"><img src="img/goods-lamp1.jpg" style="width:40%;"></th>
+                          <td>吊燈</td>
+                          <td>1</td>
+                          <td class="text-right">$1,200</td>
+                        </tr>
+                        <!-- 運費 -->
+                        <tr class="bg-light">
+                          <th scope="row" colspan="2" class="text-center">運費</th>
+                          <td></td>
+                          <td class="text-right">NT$300</td>
+                        </tr>
+                        <!-- 金額 -->
+                        <tr class="bg-light font-weight-bolder text-primary">
+                          <th scope="row" colspan="2" class="text-center">總計</th>
+                          <td>6</td>
+                          <td class="text-right">NT$5,940</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <hr class="my-0">
+
+            <!-- 個人資料 -->
+            <h5 class="text-center font-weight-bolder mt-5">個人資料</h5>
+            <table class="table mb-0">
+              <tbody>
+                <tr>
+                  <th scope="col">姓名</th>
+                  <td scope="col">王一二</th>                
+                </tr>              
+                <tr>
+                  <th scope="col">聯絡電襪</th>
+                  <td scope="col">0912-345-678</th>                
+                </tr>
+                <tr>
+                  <th scope="col">地址</th>
+                  <td scope="col">台北市中正區OOO路O段O號O樓</th>                
+                </tr>
+                <tr>
+                  <th scope="col">E-mail</th>
+                  <td scope="col">123456789@gmail.com</th>                
+                </tr>
+              </tbody>
+            </table>
+            <hr class="my-0">
+          </div>
+        </div>
+
+      
+
+
+
+    </section>
+    <!-- Content end -->
+
+
+    <!-- footer start -->
+    <footer class="bg-info text-white text-center py-5">
+
+        <div class="d-flex justify-content-center mb-2">
+            <h6 class="mr-2">Copyright 2020 @ JeanKuo</h6>
+            <!-- IG圖 -->
+            <a href="#" class="text-white"><i class="fab fa-instagram fa-1x mr-2"></i></a>
+            <!-- FB圖 -->
+            <a href="#" class="text-white"><i class="fab fa-facebook fa-1x mr-2"></i></a>
+            <!-- Twitter -->
+            <a href="#" class="text-white"><i class="fab fa-twitter fa-1x mr-2"></i></a>
+        </div>     
+        <p>Made with Bootstrap</p>
+    </footer>
+    <!-- footer end -->
+
+
+
+    
+
+    <!-- Bootstrap JS載入 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- 表格驗證JS語法 -->
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+
+</body>
+
+</html>

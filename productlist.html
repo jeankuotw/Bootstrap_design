@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<!-- 適用於台灣繁體字 -->
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 網頁會隨裝置調整大小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ie相容性,讓ie強制指定到新版的edge -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>UNDE-Shopping Website</title>
+
+    <!-- Bootstrap CSS連結 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/all.css">
+
+    <!-- Fontawesome連結(我的Fontawesome kit) -->
+    <script src="https://kit.fontawesome.com/59a4f0bb37.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+
+    <!-- Navbar start-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="index.html"><img src="img/(change)UNDElogoblackw.svg" style="width:150px; height:50px;"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="productlist.html">Product</a>
+              </li>
+            </ul>
+
+            <!-- 購物車+顯示購物車清單:dropdown -->
+            <div class="dropdown">
+                  <!-- 取消dropdown的向下箭頭:取消class="dropdown-toggle" -->
+                  <!-- btn-cart為自己定義的CSS設定 -->
+                  <button class="btn btn-outline-secondary text-dark btn-cart" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- i圖示:fontawesome -->
+                    購物車<i class="fas fa-shopping-cart fa-1x ml-1"></i>
+                    <!-- 購物車內商品數量：Badge -->
+                    <span class="badge badge-pill badge-danger">3</span>
+                  </button>
+                  <!-- 下拉式選單改為向右靠齊class="dropdown-menu-right" -->
+                  <!-- 調整寬度：加上style→min-width最小寬度為XXpx -->
+                  <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="dropdownMenuButton" style="min-width:380px;">
+                    <!-- 標題 -->
+                    <p class="font-weight-bolder">已選購商品</p>
+                    <!-- 明細：改為表格格式table -->
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <!-- 垃圾桶標籤:i標籤,font-awesome小圖示 -->
+                          <!-- 按圖示跳出刪除對話框Modal(寫在nav下方),圖示也需設定data-toggle="modal"、data-target="#id名" -->
+                          <!-- 屬性data-backdrop="static"→取消彈跳視窗modal按到視窗以外的部分時,直接關掉視窗的功能 -->
+                          <th scope="col"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+
+
+                          <!-- 商品照片 -->
+                          <td scope="col"><img src="img/goods-sofa.jpg" style="width:60%;"></td>
+                          <!-- 商品名稱 -->
+                          <td scope="col" style="width:120px;">餐椅(簡約風格型)</td>
+                          <!-- 數量 -->
+                          <td scope="col">1</td>
+                          <!-- 金額 -->
+                          <td scope="col" class="text-right">$1,590</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-chair3.jpg" style="width:60%;"></td>
+                          <td>原木餐桌椅</td>
+                          <td>4</td>
+                          <td class="text-right">$8,400</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-lamp1.jpg" style="width:60%;"></td>
+                          <td>吊燈</td>
+                          <td>1</td>
+                          <td class="text-right">$1,200</td>
+                        </tr>
+                        <!-- 金額 -->
+                        <tr class="bg-light">
+                          <th scope="row" colspan="3" class="text-center">總計</th>
+                          <td scope="col">6</td>
+                          <td class="text-right">NT$5,640</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <!-- 送出按鈕：與下拉式選單同寬btn-block -->
+                    <a href="cart.html" type="button" class="btn btn-primary btn-block"><i class="fas fa-shopping-cart fa-1x mr-2"></i>前往結帳</a>
+                    <a href=""></a>
+
+                  </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- 刪除Modal start-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header bg-danger text-light">
+                <h5 class="modal-title" id="exampleModalLabel">確定刪除商品嗎?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                <button type="button" class="btn btn-outline-danger">確定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal end -->
+
+    <!-- Navbar end -->
+
+    <!-- 主視覺圖片：圖片滿版 -->
+    <header>
+
+        <!-- [課程作法] Jumbotron廣告大屏幕(使用滿版) -->        
+        <!-- 自定義class：插入背景圖、bg-cover定義圖片高度、顯示位置、符合寬度大小 -->
+        <!-- 垂直置中:使用d-flex排版 -->
+        <div class="jumbotron jumbotron-fluid jumbotron-bg bg-cover d-flex align-items-center">    
+            <div class="container text-light text-center jumbotron-text">
+                <h1 class="display-4">2020春季，最後出清</h1>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A vero, nobis atque! Vero totam, ex nemo vitae asperiores repudiandae deserunt nisi enim, voluptates, sit eos nulla libero tempora.</p>
+            </div>
+        </div>
+
+        <!-- [我的作法]自定義class,使用背景插入,圖片可設定高度、顯示位置、符合寬度調整大小 -->
+        <!-- <div class="banner bg-cover" style="position:relative">
+            <div class="banner-text text-white text-center">
+                <h2 class="display-3">2020春季，最後出清</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A vero, nobis atque! Vero totam, ex nemo vitae asperiores repudiandae deserunt nisi enim, voluptates, sit eos nulla libero tempora molestiae consequatur? </p>
+            </div>
+        </div> -->
+    </header>
+
+
+    <!-- Content start -->
+    <section class="container py-5">
+        <div class="row">
+            <!-- 左-目錄:List group列表群組 -->
+            <!-- 使用List-group中能切換分頁的效果:JavaScript behavior -->
+            <div class="col-md-3">
+                <div class="list-group" id="list-tab" role="tablist">
+                  <a class="list-group-item list-group-item-action list-group-item-light active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"><i class="fas fa-shopping-bag fs-2x mr-2"></i>全部商品</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"><i class="fas fa-chair fs-2x mr-2"></i>椅子</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages"><i class="fas fa-archway fs-2x mr-2"></i>桌子</a>
+                  <a class="list-group-item list-group-item-action list-group-item-light" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings"><i class="fas fa-bahai fs-2x mr-2"></i>燈具</a>
+                </div>
+            </div>
+
+            <!-- 右-商品列表:input group+card -->
+            <div class="col-md-9">
+                <!-- (上)搜尋列:input group -->
+                <div class="form-inline">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-info" type="button" id="button-addon2">搜尋</button>
+                      </div>
+                    </div>
+                </div>
+                
+                <!-- (下)商品列表:Card + (配合左選單)List-group切換頁面的設定 -->
+                <!-- Card使用Card layout中有照片+內容+footer的排版,可讓footer高度一致
+                     (注意)不要使用card-deck,會把所有的card擠在同一行 -->
+                <!-- ***(注意)按鈕可以直接用text-center將按鈕置中*** -->
+
+                <!-- 分頁start -->
+                <div class="tab-content" id="nav-tabContent">
+                    <!-- 分頁1：全部商品 -->
+                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                         <div class="row mb-3">
+                            <!-- 1 -->
+                            <div class="col-md-4 mb-3">
+                                <!-- h-100：讓每個card高度一致,不會隨內容多寡而不同 -->
+                                <!-- hover效果：自定義class樣式card-hover -->
+                                <div class="card h-100 card-hover">
+                                    <a href="goods-chair.html"><img src="img/goods-chair1.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit longer</p>
+                                    </div>
+                                    <!-- 消除footer預設背景(bg-white)、將上方格線刪除(border-top-0) -->
+                                    <!-- footer背景變為透明:自定義class樣式bg-transparent -->
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                        <!-- 商品樣式選擇：btn-group -->
+                                        <!-- 賣完可使用class="disabled" -->
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                          <a href="goods-chair.html" type="button" class="btn btn-outline-secondary">White</a>
+                                          <a href="goods-chair.html" type="button" class="btn btn-outline-secondary disabled">Yellow</a>
+                                          <a href="goods-chair.html" type="button" class="btn btn-outline-secondary">Brown</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2 -->
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="#"><img src="img/goods-chair4.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                          <button type="button" class="btn btn-outline-secondary disabled">White</button>
+                                          <button type="button" class="btn btn-outline-secondary">Yellow</button>
+                                          <button type="button" class="btn btn-outline-secondary">Green</button>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                             <!-- 3 -->
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="goods-table.html"><img src="img/goods-chair3.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit longer</p>
+                                    </div>
+                                    <!-- 單一尺寸按鈕：可修改變為長按鈕bnt-block -->
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                          <button type="button" class="btn btn-outline-secondary btn-sm btn-block">Buy</button>
+                                    </div>
+                                </div>
+                             </div>
+                             <!-- 4 -->
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="#"><img src="img/goods-table1.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                    </div>
+                                    <!-- 消除footer預設背景(bg-white)、將上方格線刪除(border-top-0) -->
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                          <button type="button" class="btn btn-outline-secondary">White</button>
+                                          <button type="button" class="btn btn-outline-secondary">Yellow</button>
+                                          <button type="button" class="btn btn-outline-secondary">Brown</button>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                             <!-- 5 -->
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="#"><img src="img/goods-lamp1.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit longer</p>
+                                    </div>
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                          <button type="button" class="btn btn-outline-secondary btn-sm btn-block">Buy</button>
+                                    </div>
+                                </div>
+                             </div>
+                             <!-- 6 -->
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="#"><img src="img/goods-sofa.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                    </div>
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                          <button type="button" class="btn btn-outline-secondary">Blue</button>
+                                          <button type="button" class="btn btn-outline-secondary">Yellow</button>
+                                          <button type="button" class="btn btn-outline-secondary">Brown</button>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                         </div> 
+                    </div>
+
+                    <!-- 分頁2:椅子 -->
+                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                         <div class="row mb-3">
+                            <!-- 1 -->
+                            <div class="col-md-4 mb-3">
+                                <!-- h-100：讓每個card高度一致,不會隨內容多寡而不同 -->
+                                <!-- hover效果：自定義class樣式card-hover -->
+                                <div class="card h-100 card-hover">
+                                    <a href="goods-chair.html"><img src="img/goods-chair1.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit longer</p>
+                                    </div>
+                                    <!-- 消除footer預設背景(bg-white)、將上方格線刪除(border-top-0) -->
+                                    <!-- footer背景變為透明:自定義class樣式bg-transparent -->
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                        <!-- 商品樣式選擇：btn-group -->
+                                        <!-- 賣完可使用class="disabled" -->
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                          <a href="goods-chair.html" type="button" class="btn btn-outline-secondary">White</a>
+                                          <a href="goods-chair.html" type="button" class="btn btn-outline-secondary disabled">Yellow</a>
+                                          <a href="goods-chair.html" type="button" class="btn btn-outline-secondary">Brown</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2 -->
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="#"><img src="img/goods-chair4.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                          <button type="button" class="btn btn-outline-secondary disabled">White</button>
+                                          <button type="button" class="btn btn-outline-secondary">Yellow</button>
+                                          <button type="button" class="btn btn-outline-secondary">Green</button>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                             <!-- 3 -->
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="#"><img src="img/goods-chair3.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit longer</p>
+                                    </div>
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                          <button type="button" class="btn btn-outline-secondary btn-sm btn-block">Buy</button>
+                                    </div>
+                                </div>
+                             </div>
+                             <!-- 6 -->
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="#"><img src="img/goods-sofa.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                    </div>
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                          <button type="button" class="btn btn-outline-secondary">Blue</button>
+                                          <button type="button" class="btn btn-outline-secondary">Yellow</button>
+                                          <button type="button" class="btn btn-outline-secondary">Brown</button>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                         </div> 
+                    </div>
+
+                    <!-- 分頁3：桌子 -->
+                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                         <div class="row mb-3">
+                             <!-- 3 -->
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="goods-table.html"><img src="img/goods-chair3.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit longer</p>
+                                    </div>
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                          <button type="button" class="btn btn-outline-secondary btn-sm btn-block">Buy</button>
+                                    </div>
+                                </div>
+                             </div>
+                             <!-- 4 -->
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="#"><img src="img/goods-table1.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                    </div>
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                          <button type="button" class="btn btn-outline-secondary">White</button>
+                                          <button type="button" class="btn btn-outline-secondary">Yellow</button>
+                                          <button type="button" class="btn btn-outline-secondary">Brown</button>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                         </div> 
+                    </div>
+
+                    <!-- 分頁4：燈具 -->
+                    <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                         <div class="row mb-3">
+                             <div class="col-md-4 mb-3">
+                               <div class="card h-100 card-hover">
+                                    <a href="#"><img src="img/goods-lamp1.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This content is a little bit longer</p>
+                                    </div>
+                                    <div class="card-footer text-center border-top-0 bg-transparent">
+                                          <button type="button" class="btn btn-outline-secondary btn-sm btn-block">Buy</button>
+                                    </div>
+                                </div>
+                             </div>
+
+                         </div> 
+                    </div>
+
+                </div>
+                <!-- 分頁end -->
+
+                <!-- 頁碼 -->
+                <nav aria-label="Page navigation example">
+                  <!-- 置中對齊的設定放在ul上(使用flex排版) -->
+                  <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>                  
+            </div>
+
+
+
+              
+            </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Content end -->
+
+
+    <!-- footer start -->
+    <footer class="bg-info text-white text-center py-5">
+
+        <div class="d-flex justify-content-center mb-2">
+            <h6 class="mr-2">Copyright 2020 @ JeanKuo</h6>
+            <!-- IG圖 -->
+            <a href="#" class="text-white"><i class="fab fa-instagram fa-1x mr-2"></i></a>
+            <!-- FB圖 -->
+            <a href="#" class="text-white"><i class="fab fa-facebook fa-1x mr-2"></i></a>
+            <!-- Twitter -->
+            <a href="#" class="text-white"><i class="fab fa-twitter fa-1x mr-2"></i></a>
+        </div>     
+        <p>Made with Bootstrap</p>
+    </footer>
+    <!-- footer end -->
+
+
+
+    
+
+    <!-- Bootstrap JS載入 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

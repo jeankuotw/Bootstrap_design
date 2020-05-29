@@ -1,0 +1,103 @@
+@charset "UTF-8";
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+/*首頁index.html-start===*/
+/*輪播圖:定義高度*/
+.carousel-item {
+  height: 800px; }
+
+@media (max-width: 576px) {
+  .carousel-item {
+    height: 500px; }
+    .carousel-item h5 {
+      font-size: 1.5rem;
+      line-height: 35px !important; } }
+
+/*輪播圖文字框*/
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.3);
+  /*width:50%;*/
+  /*height:100%;*/ }
+
+/*大文字*/
+.display-md-4 {
+  font-size: 3.5rem; }
+
+.bg-cover-center {
+  background-size: cover;
+  background-position: center center; }
+
+/*主視覺圖片*/
+/*課程作法:Jumbotron*/
+.jumbotron-bg {
+  background-image: url(../img/banner.jpg);
+  min-height: 400px; }
+
+.jumbotron-text {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 60%; }
+
+/*我的作法*/
+.banner {
+  height: 400px;
+  background-image: url(../img/banner.jpg); }
+
+.bg-cover {
+  background-size: cover;
+  background-position: bottom center; }
+
+/*主視覺圖文字背景調整透明度*/
+.banner-text {
+  position: absolute;
+  width: 50%;
+  top: 25%;
+  left: 25%;
+  background-color: rgba(0, 0, 0, 0.3); }
+
+/*購物車*/
+/*外層*/
+.btn-cart {
+  position: relative; }
+
+.btn-cart .badge {
+  position: absolute;
+  top: 1px;
+  right: 0; }
+
+/*左：選單*/
+/*右：商品列表*/
+/*將footer背景色變為透明*/
+.bg-transparent {
+  background-color: transparent; }
+
+/*自定義hover效果*/
+.card-hover {
+  /*陰影內容順序為:X軸、Y軸、擴散度、顏色(最後一個0.16為透明度)*/
+  -webkit-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  /*要變的是box-shadow、變化時間0.3秒*/
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  -o-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s; }
+
+.card-hover:hover {
+  -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4); }
+
+/*商品頁面(goods.html)*/
+/*左-商品訊息：設定缺貨尺寸滑鼠點擊效果失效*/
+.btn.disabled {
+  pointer-events: none; }
+
+/*按鈕hover位移效果*/
+.btn-hover:hover {
+  -webkit-transform: translate(1px, 1px);
+  -ms-transform: translate(1px, 1px);
+  transform: translate(1px, 1px); }
+
+/*購物車頁面(cart.html)*/
+.alert-rounded {
+  border-radius: 50px; }

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<!-- 適用於台灣繁體字 -->
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 網頁會隨裝置調整大小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ie相容性,讓ie強制指定到新版的edge -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>UNDE-Shopping Website</title>
+
+    <!-- Bootstrap CSS連結 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/all.css">
+
+    <!-- Fontawesome連結(我的Fontawesome kit) -->
+    <script src="https://kit.fontawesome.com/59a4f0bb37.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+
+    <!-- Navbar start-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="index.html"><img src="img/(change)UNDElogoblackw.svg" style="width:150px; height:50px;"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="productlist.html">Product</a>
+              </li>
+            </ul>
+
+            <!-- 購物車+顯示購物車清單:dropdown -->
+            <div class="dropdown">
+                  <!-- 取消dropdown的向下箭頭:取消class="dropdown-toggle" -->
+                  <!-- btn-cart為自己定義的CSS設定 -->
+                  <button class="btn btn-outline-secondary text-dark btn-cart" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- i圖示:fontawesome -->
+                    購物車<i class="fas fa-shopping-cart fa-1x ml-1"></i>
+                    <!-- 購物車內商品數量：Badge -->
+                    <span class="badge badge-pill badge-danger">3</span>
+                  </button>
+                  <!-- 下拉式選單改為向右靠齊class="dropdown-menu-right" -->
+                  <!-- 調整寬度：加上style→min-width最小寬度為XXpx -->
+                  <div class="dropdown-menu dropdown-menu-right p-3" aria-labelledby="dropdownMenuButton" style="min-width:380px;">
+                    <!-- 標題 -->
+                    <p class="font-weight-bolder">已選購商品</p>
+                    <!-- 明細：改為表格格式table -->
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <!-- 垃圾桶標籤:i標籤,font-awesome小圖示 -->
+                          <!-- 按圖示跳出刪除對話框Modal(寫在nav下方),圖示也需設定data-toggle="modal"、data-target="#id名" -->
+                          <!-- 屬性data-backdrop="static"→取消彈跳視窗modal按到視窗以外的部分時,直接關掉視窗的功能 -->
+                          <th scope="col"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+
+
+                          <!-- 商品照片 -->
+                          <td scope="col"><img src="img/goods-sofa.jpg" style="width:60%;"></td>
+                          <!-- 商品名稱 -->
+                          <td scope="col" style="width:120px;">餐椅(簡約風格型)</td>
+                          <!-- 數量 -->
+                          <td scope="col">1</td>
+                          <!-- 金額 -->
+                          <td scope="col" class="text-right">$1,590</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-chair3.jpg" style="width:60%;"></td>
+                          <td>原木餐桌椅</td>
+                          <td>4</td>
+                          <td class="text-right">$8,400</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-lamp1.jpg" style="width:60%;"></td>
+                          <td>吊燈</td>
+                          <td>1</td>
+                          <td class="text-right">$1,200</td>
+                        </tr>
+                        <!-- 金額 -->
+                        <tr class="bg-light">
+                          <th scope="row" colspan="3" class="text-center">總計</th>
+                          <td scope="col">6</td>
+                          <td class="text-right">NT$5,640</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <!-- 送出按鈕：與下拉式選單同寬btn-block -->
+                    <a href="cart.html" type="button" class="btn btn-primary btn-block"><i class="fas fa-shopping-cart fa-1x mr-2"></i>前往結帳</a>
+
+                  </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- 刪除Modal start-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header bg-danger text-light">
+                <h5 class="modal-title" id="exampleModalLabel">確定刪除商品嗎?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                <button type="button" class="btn btn-outline-danger">確定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal end -->
+    <!-- Navbar end -->
+
+
+
+    <!-- Content start -->
+    <!-- 購物車結帳流程：使用row>col>alert來排版 -->
+    <!-- RWD排版：手機直式col單行(col)、sm以上三個col一列(col-sm即可,不用寫數字,會平均分配寬度) -->
+    <header class="my-3">
+      <div class="container">
+        <div class="row text-center">
+          <!-- 1 -->
+          <div class="col col-sm">
+            <!-- alert框變為圓角：自定義class="alert-rounded" -->
+            <div class="alert alert-primary alert-rounded" role="alert">步驟1-輸入訂單資料</div>
+          </div>
+          <!-- 2 -->
+          <div class="col col-sm">
+            <div class="alert alert-light border-secondary alert-rounded" role="alert">步驟2-選擇付款方式</div>
+          </div>
+          <!-- 3 -->
+          <div class="col col-sm">
+            <div class="alert alert-light border-secondary alert-rounded" role="alert">步驟3-完成訂單</div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- 顯示購物車內容start -->
+    <section class="mb-3">
+      <div class="container">
+        <!-- 使用row>col將購物車內容調整成適合寬度、並用flex排版置中 -->
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <!-- 購物車內容、購買人資訊：使用折疊Collapse -->
+            <div class="accordion mb-5" id="accordionExample">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <i class="fas fa-shopping-cart fa-1x mr-2"></i>購物車明細
+                    </button>
+                  </h2>
+                </div>
+                
+                <!-- class="show"：打開網頁時展開,不想展開不要寫即可 -->
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <!-- 直接使用購物車清單中的表格內容 -->
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <!-- 垃圾桶標籤:i標籤,font-awesome小圖示 -->
+                          <!-- 按圖示跳出刪除對話框Modal(寫在nav下方),圖示也需設定data-toggle="modal"、data-target="#id名" -->
+                          <!-- 屬性data-backdrop="static"→取消彈跳視窗modal按到視窗以外的部分時,直接關掉視窗的功能 -->
+                          <th scope="col"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+
+
+                          <!-- 商品照片 -->
+                          <td scope="col"><img src="img/goods-sofa.jpg" style="width:40%;"></td>
+                          <!-- 商品名稱 -->
+                          <td scope="col">餐椅(簡約風格型)</td>
+                          <!-- 數量 -->
+                          <td scope="col">1</td>
+                          <!-- 金額 -->
+                          <td scope="col" class="text-right">$1,590</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-chair3.jpg" style="width:40%;"></td>
+                          <td>原木餐桌椅</td>
+                          <td>4</td>
+                          <td class="text-right">$8,400</td>
+                        </tr>
+                        <tr>
+                          <th scope="row"><a class="text-dark" href="#" data-toggle="modal" data-target="#exampleModal" data-backdrop="static"><i class="far fa-trash-alt"></i></a></th>
+                          <td scope="col"><img src="img/goods-lamp1.jpg" style="width:40%;"></td>
+                          <td>吊燈</td>
+                          <td>1</td>
+                          <td class="text-right">$1,200</td>
+                        </tr>
+                        <!-- 金額 -->
+                        <tr class="bg-light">
+                          <th scope="row" colspan="3" class="text-center">總計</th>
+                          <td scope="col">6</td>
+                          <td class="text-right">NT$5,640</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 聯絡人資訊：使用form-row,表格間的距離會比較小 -->
+            <!-- 製作具有驗證功能的表格：瀏覽器驗證 -->
+            <!-- 步驟1：每個input表格加入屬性required -->
+            <!-- 步驟2：form標籤上加入JS相對應的class名稱&加上屬性novalidate(表單尚未驗證) -->
+            <!-- 步驟3：加入Bootstrap JS語法(最下方JS區) -->
+            <!-- 步驟4(**重要**)：若為select選單,需在select標籤上加入required屬性&內層option標籤上加入屬性value="" -->
+            <!-- 以上詳情可看Bootstrap標格驗證中的-Custom styles -->
+            <form class="needs-validation mb-5" novalidate>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <!-- 姓v -->
+                  <label for="inputAddress">姓氏</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="請輸入姓氏" required>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <!-- 名v -->
+                  <label for="inputAddress">名字</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="請輸入名字" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <!-- 連絡電話v -->
+                <label for="inputphone">連絡電話</label>
+                <input type="tel" class="form-control" id="inputphone" placeholder="0000-000-000" required>
+              </div>
+              <div class="form-group">
+                <!-- 地址v -->
+                <label for="inputAddress">地址</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="OO路O段O號O樓" required>
+              </div>
+              <div class="form-row">
+                <!-- e-mailv -->
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">E-mail</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="xxxxxxxxx@gmail.com" required>
+                </div>
+                <div class="form-group col-md-6">                  
+                  <label for="validationCustom04">地區</label>
+                  <select class="custom-select" id="validationCustom04" required>
+                    <option selected value="">請選擇...</option>
+                    <option>台北市</option>
+                    <option>新北市</option>
+                    <option>台中市</option>
+                    <option>台南市</option>
+                    <option>高雄市</option>
+                    <option>宜蘭市</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                  <label class="form-check-label" for="gridCheck">
+                    我已閱讀使用條款
+                  </label>
+                </div>
+              </div>
+              <div class="text-center mt-5">
+                <button class="btn btn-outline-primary" type="submit">確認付款</button>
+                <a class="btn btn-primary" type="submit" href="complete.html">下一步</a>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      
+
+
+
+    </section>
+    <!-- Content end -->
+
+
+    <!-- footer start -->
+    <footer class="bg-info text-white text-center py-5">
+
+        <div class="d-flex justify-content-center mb-2">
+            <h6 class="mr-2">Copyright 2020 @ JeanKuo</h6>
+            <!-- IG圖 -->
+            <a href="#" class="text-white"><i class="fab fa-instagram fa-1x mr-2"></i></a>
+            <!-- FB圖 -->
+            <a href="#" class="text-white"><i class="fab fa-facebook fa-1x mr-2"></i></a>
+            <!-- Twitter -->
+            <a href="#" class="text-white"><i class="fab fa-twitter fa-1x mr-2"></i></a>
+        </div>     
+        <p>Made with Bootstrap</p>
+    </footer>
+    <!-- footer end -->
+
+
+
+    
+
+    <!-- Bootstrap JS載入 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- 表格驗證JS語法 -->
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+
+</body>
+
+</html>
