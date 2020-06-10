@@ -134,17 +134,22 @@
     <!-- 主視覺圖片：圖片滿版 -->
     <header>
 
-        <!-- [課程作法] Jumbotron廣告大屏幕(使用滿版) -->        
+        <!-- Jumbotron廣告大屏幕(使用滿版) -->        
         <!-- 自定義class：插入背景圖、bg-cover定義圖片高度、顯示位置、符合寬度大小 -->
         <!-- 垂直置中:使用d-flex排版 -->
         <div class="jumbotron jumbotron-fluid jumbotron-bg bg-cover d-flex align-items-center">    
             <div class="container text-light text-center jumbotron-text">
-                <h1 class="display-4">2020春季，最後出清</h1>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A vero, nobis atque! Vero totam, ex nemo vitae asperiores repudiandae deserunt nisi enim, voluptates, sit eos nulla libero tempora.</p>
+                <!-- md以上顯示此段+文字大(自定義CSS),md以下隱藏此段 -->
+                <h1 class="display-md-4 d-md-block d-none">2020春季，最後出清</h1>
+                  <!-- md(平板)以上隱藏本段,md以下顯示+文字小 -->
+                  <!-- sm(手機橫式)以下使用CSS定義寬高 -->
+                  <h5 class="h2 d-md-none d-block" style="line-height: 50px;">2020春季<br>最後出清</h5>
+                  <!-- 副標題:md以下不顯示 -->                
+                  <p class="lead d-md-block d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A vero, nobis atque! Vero totam, ex nemo vitae asperiores repudiandae deserunt nisi enim, voluptates, sit eos nulla libero tempora.</p>
             </div>
         </div>
 
-        <!-- [我的作法]自定義class,使用背景插入,圖片可設定高度、顯示位置、符合寬度調整大小 -->
+        <!-- [其他作法]自定義class,使用背景插入,圖片可設定高度、顯示位置、符合寬度調整大小 -->
         <!-- <div class="banner bg-cover" style="position:relative">
             <div class="banner-text text-white text-center">
                 <h2 class="display-3">2020春季，最後出清</h2>
